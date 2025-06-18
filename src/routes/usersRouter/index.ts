@@ -11,9 +11,6 @@ router.get("/contact", userController.contact);
 router.get("/gallery", userController.gallery);
 router.get("/testimonials", userController.testimonials);
 
-
-
-
 router.post("/create", userController.create);
 
 
