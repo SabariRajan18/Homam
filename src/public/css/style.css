@@ -3,14 +3,14 @@
 
 /* Global Styles */
 body {
-  font-family: 'Lora', serif;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
   background-color: #e0e5ec;
   color: #0077cc;
   padding-top: 70px;
 }
 
 h1, h2, h3, p, .navbar-brand {
-  font-family: 'Cinzel', serif;
+   font-family: 'Tiro Devanagari Sanskrit', serif;
   color: #0077cc;
 }
 
@@ -20,16 +20,18 @@ section {
   z-index: 1;
 }
 
-footer {
 
-  color: #e0e5ec;
-}
 
 /* Navbar */
 .navbar {
-  background-color: #e0e5ec !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  height: 6rem;
+background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 30px 0;
 }
 
 .navbar-nav .nav-link {
@@ -49,11 +51,120 @@ footer {
 
 /* Hero Section */
 .hero {
-  background: url('temple-bg.jpg') center/cover no-repeat;
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+   font-family: 'Tiro Devanagari Sanskrit', serif;
+  background: #e0e5ec; /* Optional: background */
 }
+
+.neu-shloka-box {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  max-width: 80rem;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.shloka-box {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 600px; /* Responsive */
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.shloka-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #1f1f1f;
+}
+
+.btn-primary {
+  background: rgba(0, 119, 204, 0.6);
+  border: none;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: rgba(0, 119, 204, 0.8);
+  transform: scale(1.05);
+}
+
+.glass-benefits {
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-section {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+}
+
+.benefit-icon {
+  color: #0077cc;
+}
+
+.glass-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1d1d1d;
+}
+
+.glass-card p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .glass-section {
+    padding: 30px 20px;
+  }
+}
+
+
+.neu-section {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 40px;
+}
+
 
 
 
@@ -212,3 +323,5 @@ footer {
 .pooja-list .list-group-item:nth-child(even) {
   background-color: #f8f6ec;
 }
+
+
