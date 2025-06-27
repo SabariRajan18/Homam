@@ -7,6 +7,9 @@ body {
   background-color: #e0e5ec;
   color: #0077cc;
   padding-top: 70px;
+  background-image: url('/assets/gallery4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;   
 }
 
 h1, h2, h3,  .navbar-brand {
@@ -59,7 +62,6 @@ background: rgba(255, 255, 255, 0.1);
   justify-content: center;
   padding: 2rem;
    font-family: 'Tiro Devanagari Sanskrit', serif;
-   background-image: url(./assets/gallery3.jpg);
 }
 
 .neu-shloka-box {
@@ -351,4 +353,26 @@ background: rgba(255, 255, 255, 0.1);
   color: #0077cc;
 }
 
+/* about */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* Transparent white */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  color: #000; /* Ensure readability */
+  transition: all 0.3s ease;
+}
 
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* footer */
+footer{
+  background-image: url('/assets/07.png');
+  background-size: cover;
+  background-repeat: no-repeat; 
+}
