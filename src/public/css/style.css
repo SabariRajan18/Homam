@@ -9,10 +9,11 @@ body {
   padding-top: 70px;
 }
 
-h1, h2, h3, p, .navbar-brand {
+h1, h2, h3,  .navbar-brand {
    font-family: 'Tiro Devanagari Sanskrit', serif;
   color: #0077cc;
 }
+
 
 section {
   padding: 60px 0;
@@ -58,7 +59,7 @@ background: rgba(255, 255, 255, 0.1);
   justify-content: center;
   padding: 2rem;
    font-family: 'Tiro Devanagari Sanskrit', serif;
-  background: #e0e5ec; /* Optional: background */
+   background-image: url(./assets/gallery3.jpg);
 }
 
 .neu-shloka-box {
@@ -239,21 +240,6 @@ background: rgba(255, 255, 255, 0.1);
   font-weight: bold;
 }
 
-/* Contact Section */
-/* .parallax-bg {
-  position: relative;
-  background: url('./assets/temple.jpeg') no-repeat center center / cover;
-  height: 300px;
-}
-
-.parallax-bg::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.4);
-} */
-
 .contact-card {
   margin-top: -150px;
   background: #fff;
@@ -312,16 +298,57 @@ background: rgba(255, 255, 255, 0.1);
   position: absolute;
 }
 /* tariff section */
-
-.pooja-list .list-group-item {
-  background-color: #fdfcf7;
-  border: none;
-  color: #5a4632;
-  font-weight: 500;
+#ritual-table {
+  font-family: 'Lora', serif;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.pooja-list .list-group-item:nth-child(even) {
-  background-color: #f8f6ec;
+#ritual-table h3 {
+  font-family: 'Cinzel', serif;
+  color: #3b2f2f;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#ritual-table .table {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+#ritual-table .table thead th {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  color: #2e2e2e;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+#ritual-table .table tbody td {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #2f2f2f;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+#ritual-table .table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+#ritual-table i {
+  min-width: 20px;
+  color: #0077cc;
 }
 
 
