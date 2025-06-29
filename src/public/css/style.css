@@ -3,16 +3,20 @@
 
 /* Global Styles */
 body {
-  font-family: 'Lora', serif;
-  background-color: #f5efe6;
-  color: #2c2c2c;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  background-color: #e0e5ec;
+  color: #0077cc;
   padding-top: 70px;
+  background-image: url('/assets/gallery4.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;   
 }
 
-h1, h2, h3, p, .navbar-brand {
-  font-family: 'Cinzel', serif;
-  color: #693e28;
+h1, h2, h3,  .navbar-brand {
+   font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: #0077cc;
 }
+
 
 section {
   padding: 60px 0;
@@ -20,24 +24,29 @@ section {
   z-index: 1;
 }
 
-footer {
 
-  color: #f5efe6;
-}
 
 /* Navbar */
 .navbar {
-  background-color: #fff5e1 !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 30px 0;
 }
 
 .navbar-nav .nav-link {
-  color: #693e28 !important;
+  color: #0077cc !important;
   font-weight: bold;
 }
 
 .navbar-nav .nav-link.active {
-  color: #b88a44 !important;
+  color: black!important;
+  font-weight: bolder;
+  
 }
 
 /* Buttons */
@@ -46,11 +55,119 @@ footer {
 
 /* Hero Section */
 .hero {
-  background: url('temple-bg.jpg') center/cover no-repeat;
   min-height: 100vh;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+   font-family: 'Tiro Devanagari Sanskrit', serif;
 }
+
+.neu-shloka-box {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  max-width: 80rem;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+}
+
+.shloka-box {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  max-width: 600px; /* Responsive */
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.shloka-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #1f1f1f;
+}
+
+.btn-primary {
+  background: rgba(0, 119, 204, 0.6);
+  border: none;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 119, 204, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: rgba(0, 119, 204, 0.8);
+  transform: scale(1.05);
+}
+
+.glass-benefits {
+  padding: 60px 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-section {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+}
+
+.benefit-icon {
+  color: #0077cc;
+}
+
+.glass-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1d1d1d;
+}
+
+.glass-card p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .glass-section {
+    padding: 30px 20px;
+  }
+}
+
+
+.neu-section {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 40px;
+}
+
 
 
 
@@ -106,11 +223,11 @@ footer {
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   font-family: 'Lora', serif;
-  background-color: #fff5e1;
+  background-color: #e0e5ec;
 }
 
 .card-title {
-  color: #b88a44;
+  color: #0077cc;
   font-family: 'Cinzel', serif;
   font-weight: 600;
 }
@@ -121,24 +238,9 @@ footer {
 }
 
 .card .blockquote-footer {
-  color: #693e28;
+  color: #0077cc;
   font-weight: bold;
 }
-
-/* Contact Section */
-/* .parallax-bg {
-  position: relative;
-  background: url('./assets/temple.jpeg') no-repeat center center / cover;
-  height: 300px;
-}
-
-.parallax-bg::after {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.4);
-} */
 
 .contact-card {
   margin-top: -150px;
@@ -198,14 +300,79 @@ footer {
   position: absolute;
 }
 /* tariff section */
-
-.pooja-list .list-group-item {
-  background-color: #fdfcf7;
-  border: none;
-  color: #5a4632;
-  font-weight: 500;
+#ritual-table {
+  font-family: 'Lora', serif;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.pooja-list .list-group-item:nth-child(even) {
-  background-color: #f8f6ec;
+#ritual-table h3 {
+  font-family: 'Cinzel', serif;
+  color: #3b2f2f;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#ritual-table .table {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+#ritual-table .table thead th {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  color: #2e2e2e;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+#ritual-table .table tbody td {
+  padding: 1rem;
+  font-size: 1rem;
+  color: #2f2f2f;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+#ritual-table .table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+#ritual-table i {
+  min-width: 20px;
+  color: #0077cc;
+}
+
+/* about */
+.card {
+  background: rgba(255, 255, 255, 0.15); /* Transparent white */
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  color: #000; /* Ensure readability */
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* footer */
+footer{
+  background-image: url('/assets/07.png');
+  background-size: cover;
+  background-repeat: no-repeat; 
 }
