@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/assets/gallery4.jpg">
-    <title>Contact | Spiritual Awakening</title>
+    <title>Tariff - Homam Booking</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -29,13 +30,15 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/contact.js"></script>
+
+    <script src="/js/upload.js"></script>
 
     <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
   </head>
+
   <body>
 
     <!-- Navbar -->
@@ -49,82 +52,37 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto fw-semibold">
-            <li class="nav-item"><a class="nav-link" href="/">Thila
+            <li class="nav-item"><a class="nav-link " href="/">Thila
                 Homam</a></li>
-            <li class="nav-item"><a class="nav-link" href="/tariff">Homam
+            <li class="nav-item"><a class="nav-link active" href="/tariff">Homam
                 Tariff</a></li>
             <li class="nav-item"><a class="nav-link"
                 href="/gallery">Gallery</a></li>
             <!-- <li class="nav-item"><a class="nav-link" href="/testimonials">Testimonials</a></li> -->
             <li class="nav-item"><a class="nav-link"
                 href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link active"
+            <li class="nav-item"><a class="nav-link"
                 href="/contact">Contact</a></li>
           </ul>
         </div>
       </div>
     </nav>
+    <!-- Admin Section -->
 
-    <!-- Contact Section -->
-    <section class="py-5 ">
+    <section class="py-5">
       <div class="container">
-        <div class="row align-items-start " data-aos="fade-up">
-          <!-- Left: Contact Form -->
-          <div class="col-md-6 mb-4">
-            <div class="glassy-box p-4 rounded shadow">
-              <h2 class="mb-4"><i class="bi bi-envelope-heart text-danger"></i>
-                Contact Us</h2>
-              <p class="mb-4 text-dark">We would love to hear from you. Please
-                fill out the form below, and we'll get back to you soon.</p>
-
-              <form id="contact-form" class="row g-3">
-                <div class="col-12">
-                  <input type="text" class="form-control" name="name" id="contact-name"
-                    placeholder="Your Name" />
-                </div>
-                <div class="col-12">
-                  <input type="email" class="form-control" name="email" id="contact-email"
-                    placeholder="Your Email" />
-                </div>
-                <div class="col-12">
-                  <input type="text" class="form-control" name="subject" id="contact-subject"
-                    placeholder="Subject" />
-                </div>
-                <div class="col-12">
-                  <textarea class="form-control" name="message" rows="4" id="contact-message"
-                    placeholder="Your Message"></textarea>
-                </div>
-                <div class="col-12 text-start">
-                  <button type="submit" class="btn btn-primary"><i
-                      class="bi bi-send-fill"></i> Send Message</button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <!-- Right: Address -->
-          <div class="col-md-6">
-            <div class="glassy-box p-4 rounded shadow h-100">
-              <h4 class="mb-3"><i class="bi bi-geo-alt-fill text-primary"></i>
-                Our Address</h4>
-              <p class="text-dark">123 Temple Street,<br>Rameswaram, Tamil Nadu,
-                India</p>
-
-              <h4 class="mb-3 mt-4"><i
-                  class="bi bi-telephone-fill text-success"></i> Call Us</h4>
-              <p><a href="tel:+919876543210"
-                  class="text-decoration-none text-dark">+91 98765 43210</a></p>
-
-              <h4 class="mb-3 mt-4"><i
-                  class="bi bi-envelope-fill text-danger"></i> Email</h4>
-              <p><a href="mailto:info@thilahomam.com"
-                  class="text-decoration-none text-dark">info@thilahomam.com</a></p>
-
-              <h4 class="mb-3 mt-4"><i
-                  class="bi bi-clock-fill text-warning"></i> Timings</h4>
-              <p class="text-dark">Monday - Sunday: 6 AM to 6 PM</p>
-            </div>
-          </div>
+        <h3 class="mb-4">Upload Images</h3>
+        <div id="drop-area"
+          class="border border-2 border-primary rounded p-5 text-center bg-light">
+          <p class="lead mb-3">Drag & drop images here or</p>
+          <form id="upload-image-form">
+            <label class="btn btn-primary">
+              Browse Images
+              <input type="file" id="fileElem" multiple accept="image/*" hidden>
+            </label>
+            <button type="submit">Upload </button>
+          </form>
+          <div id="preview" class="row mt-4 gy-3"></div>
         </div>
       </div>
     </section>
@@ -181,16 +139,55 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
     <script>
-  AOS.init({ duration: 1000, once: true });
-  const rellax = new Rellax('.rellax');
-</script>
+     const dropArea = document.getElementById("drop-area");
+  const fileElem = document.getElementById("fileElem");
+  const preview = document.getElementById("preview");
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, e => {
+      e.preventDefault();
+      dropArea.classList.add('highlight');
+    });
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, e => {
+      e.preventDefault();
+      dropArea.classList.remove('highlight');
+    });
+  });
+
+  dropArea.addEventListener('drop', e => {
+    const files = e.dataTransfer.files;
+    handleFiles(files);
+  });
+
+  fileElem.addEventListener('change', () => {
+    handleFiles(fileElem.files);
+  });
+
+  function handleFiles(files) {
+    preview.innerHTML = '';
+    [...files].forEach(file => {
+      if (!file.type.startsWith('image/')) return;
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        const col = document.createElement('div');
+        col.className = "col-md-3 col-6";
+        col.innerHTML = `<img src="${e.target.result}" class="img-fluid preview-img" alt="${file.name}">`;
+        preview.appendChild(col);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  </script>
 
   </body>
+
 </html>

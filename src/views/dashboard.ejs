@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    img {
+      width: 100px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+  </style>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Sl No</th>
+          <th>Image</th>
+          <th>View</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% data.forEach((img, index) => { %>
+        <tr>
+          <td><%= index + 1 %></td>
+          <td><img
+              src="<%= `${req.protocol}://${req.get('host')}/uploads/${img.image}` %>"
+              alt="image" /></td>
+          <td>
+            <a href="<%= `/uploads/${img.image}` %>"
+              target="_blank">
+              <button>View</button>
+            </a>
+          </td>
+          <td>
+            <button type="submit"
+              onclick="deleteImage(`<%= img._id %>`)">Delete</button>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+  <script>
+        const deleteImage = async (imageId) => {
+  try {
+    const response = await fetch(`/v2/admin/delete-image/${imageId}`, {
+      method: "POST",
+    });
+
+    const data = await response.json();
+    if (data.status) {
+      showToast(data.message, "success");
+      setInterval(() => {
+        window.location.reload();
+      }, 1000);
+    } else {
+      showToast(data.message, "error");
+    }
+  } catch (err) {
+    console.error("AJAX error:", err);
+    alert("Something went wrong. Please try again later.");
+  }
+};
+
+function showToast(message, toastType) {
+  Toastify({
+    text: message,
+    duration: 2000,
+    gravity: "top", // or "top"
+    position: "right", // left, center, or right
+    backgroundColor: toastType === "success" ? "#28a745" : "#dc3545",
+  }).showToast();
+}
+
+    </script>
+
+</html>

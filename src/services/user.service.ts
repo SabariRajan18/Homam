@@ -1,5 +1,5 @@
 import FormModel from '../models/form.model';
-
+import GalleryModel from '../models/gallery.model';
 class UserServices {
     async homeService(request: any) {
         try {
@@ -31,7 +31,8 @@ class UserServices {
     };
     async galleryService(request: any) {
         try {
-            return { status: true, title: "gallery", pageName: "gallery" }
+            const allImages = await GalleryModel.find({}).lean();
+            return { status: true, title: "gallery", pageName: "gallery", data: allImages }
         } catch (error: any) {
             return { status: false, message: error.message ? error.message : "Internal Server Error!" }
         }
@@ -43,7 +44,7 @@ class UserServices {
             return { status: false, message: error.message ? error.message : "Internal Server Error!" }
         }
     };
-    async createService(req_Body: any) {
+    async contactFormService(req_Body: any) {
         try {
             const createdData = await FormModel.create(req_Body)
             return { status: true, message: "Created Successfully", code: 201, data: createdData }

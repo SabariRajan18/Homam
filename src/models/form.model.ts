@@ -1,26 +1,24 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-interface IFormData extends Document {
+interface IContactFormData extends Document {
     name: string;
     email: string;
-    phoneNo: string;
-    country: string;
-    socialMedia: string;
-}
+    subject: string;
+    message: string;
+};
 
-const formSchema = new Schema<IFormData>(
+const contactSchema = new Schema<IContactFormData>(
     {
         name: { type: String, required: true },
-        email: { type: String, required: true, unique: true },
-        phoneNo: { type: String, required: true },
-        country: { type: String, required: true },
-        socialMedia: { type: String, required: true },
+        email: { type: String, required: true },
+        subject: { type: String, required: true },
+        message: { type: String, required: true },
     },
     {
         timestamps: true,
-        collection: "UsersForms"
+        collection: "Contacts"
     }
 );
 
-const FormModel = mongoose.model<IFormData>("UsersForms", formSchema);
-export default FormModel;
+const ContactModel = mongoose.model<IContactFormData>("Contacts", contactSchema);
+export default ContactModel;

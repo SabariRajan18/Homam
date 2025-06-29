@@ -1,2 +1,4 @@
 import userController from "./userController";
-export default userController;
+import adminController from "./adminController";
+
+export { userController, adminController };

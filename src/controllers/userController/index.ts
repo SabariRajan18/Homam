@@ -59,9 +59,9 @@ class UserController {
         };
     };
 
-    async create(req: Request, res: Response) {
+    async contactForm(req: Request, res: Response) {
         try {
-            const result = await UserServices.createService(req.body);
+            const result = await UserServices.contactFormService(req.body);
             return successResponse(req, res, result)
         } catch (error) {
             return errorResponse(req, res, { status: false, message: "Internal Server Error", code: 500 });

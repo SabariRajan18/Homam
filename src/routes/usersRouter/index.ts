@@ -1,5 +1,5 @@
 import { Router } from "express";
-import userController from "../../controllers";
+import { userController } from "../../controllers/index";
 const router = Router();
 
 
@@ -11,7 +11,7 @@ router.get("/contact", userController.contact);
 router.get("/gallery", userController.gallery);
 router.get("/testimonials", userController.testimonials);
 
-router.post("/create", userController.create);
+router.post("/submit-contact-form", userController.contactForm);
 
 
 export default router;
