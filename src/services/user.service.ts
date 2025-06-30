@@ -46,12 +46,25 @@ class UserServices {
     };
     async contactFormService(req_Body: any) {
         try {
-            const createdData = await FormModel.create(req_Body)
+            const payloadStr = JSON.stringify(req_Body, getCircularReplacer());
+            const payload = JSON.parse(payloadStr);
+            const createdData = await FormModel.create(payload)
             return { status: true, message: "Created Successfully", code: 201, data: createdData }
         } catch (error: any) {
             return { status: false, message: error.message ? error.message : "Internal Server Error!" }
         }
     };
 };
+
+function getCircularReplacer() {
+    const seen = new WeakSet();
+    return (key: string, value: any) => {
+        if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) return;
+            seen.add(value);
+        }
+        return value;
+    };
+}
 
 export default new UserServices();

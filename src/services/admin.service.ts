@@ -13,8 +13,9 @@ class AdminService {
     async adminLoginService(request: any, response: any) {
         try {
 
-            const { email, password } = request.body;
-
+            const payloadStr = JSON.stringify(request.body, getCircularReplacer());
+            const payload = JSON.parse(payloadStr);
+            const { email, password } = payload;
             const adminData = await AdminModel.findOne({}).lean();
             console.log({ adminData }, email, password)
             if (email === adminData?.email && password === adminData?.password) {
@@ -76,5 +77,16 @@ class AdminService {
         }
     };
 };
+
+function getCircularReplacer() {
+    const seen = new WeakSet();
+    return (key: string, value: any) => {
+        if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) return;
+            seen.add(value);
+        }
+        return value;
+    };
+}
 
 export default new AdminService();

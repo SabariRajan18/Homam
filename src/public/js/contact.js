@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
       try {
-        const response = await fetch("/submit-contact-form", {
+        const response = await fetch("/v1/users/submit-contact-form", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
