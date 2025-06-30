@@ -1,0 +1,103 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora&display=swap');
+
+/* Global Styles */
+body {
+  position: relative;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: #0077cc;
+  padding-top: 70px;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+/* Blurred background using ::before */
+body::before {
+  content: "";
+  position: fixed;       /* Fixed so it stays while scrolling */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/gallery2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(10px);
+  z-index: -1;           /* Behind all content */
+}
+
+
+
+h1, h2, h3,  .navbar-brand {
+   font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: #0077cc;
+}
+/* Navbar */
+.navbar {
+background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
+  padding: 30px 0;
+}
+
+.navbar-nav .nav-link {
+  color: #0077cc !important;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link.active {
+  color: black!important;
+  font-weight: bolder;
+  
+}
+/* Gallery Section */
+.gallery-grid {
+  column-count: 4;
+  column-gap: 1rem;
+}
+
+.gallery-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* 🔽 Responsive Columns */
+@media (max-width: 1200px) {
+  .gallery-grid {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid {
+    column-count: 1;
+  }
+}
