@@ -1,5 +1,8 @@
 import GalleryModel from "../models/gallery.model";
 import AdminModel from "../models/admin.model";
+import UserContactsModel from "../models/form.model";
+import fs from 'fs';
+import path from 'path';
 import jwt from "jsonwebtoken";
 const JWT_SECRET: string = process.env.JWT_SECRET || "mySecretKey";
 class AdminService {
@@ -36,8 +39,16 @@ class AdminService {
     };
     async dashboardService(request: any) {
         try {
-            const AllImages = await GalleryModel.find({}).lean();
+            const AllImages = await GalleryModel.find({}).limit(20).sort({ _id: 1 }).lean();
             return { status: true, title: "dashboard", pageName: "dashboard", data: AllImages }
+        } catch (error: any) {
+            return { status: false, message: error.message ? error.message : "Internal Server Error!" }
+        }
+    };
+    async userContactsService(request: any) {
+        try {
+            const UserContacts = await UserContactsModel.find({ status: "Active" }).lean();
+            return { status: true, title: "user contacts", pageName: "usercontacts", data: UserContacts }
         } catch (error: any) {
             return { status: false, message: error.message ? error.message : "Internal Server Error!" }
         }
@@ -68,7 +79,14 @@ class AdminService {
             if (!image) {
                 return { status: false, message: "Image not found!" };
             }
-
+            const imagePath = path.join(__dirname, '../../uploads', image.image);
+            fs.unlink(imagePath, (err) => {
+                if (err) {
+                    console.error("Error deleting file:", err);
+                } else {
+                    console.log("File deleted:", imagePath);
+                }
+            });
             await GalleryModel.deleteOne({ _id: imageId });
             return { status: true, message: "Image deleted successfully!" };
 

@@ -37,13 +37,6 @@ class UserServices {
             return { status: false, message: error.message ? error.message : "Internal Server Error!" }
         }
     };
-    async testimonialsService(request: any) {
-        try {
-            return { status: true, title: "testimonials", pageName: "testimonials" }
-        } catch (error: any) {
-            return { status: false, message: error.message ? error.message : "Internal Server Error!" }
-        }
-    };
     async contactFormService(req_Body: any) {
         try {
             const payloadStr = JSON.stringify(req_Body, getCircularReplacer());

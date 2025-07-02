@@ -9,6 +9,7 @@ router.get("/login", adminController.login);
 router.post("/login", adminController.adminLogin);
 
 router.get("/dashboard", adminAuth, adminController.dashboard);
+router.get("/users-contacts-details", adminAuth, adminController.userContactsDetails);
 router.get("/admin-uploads", adminAuth, adminController.adminUploads);
 router.post("/upload-image", adminAuth, upload.single("image"), adminController.uploadImage);
 router.post("/delete-image/:imageId", adminAuth, adminController.deleteImage);

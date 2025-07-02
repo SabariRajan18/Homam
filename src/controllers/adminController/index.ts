@@ -27,6 +27,14 @@ class AdminController {
             return errorResponse(req, res, { status: false, message: "Internal Server Error", code: 500 });
         };
     };
+     async userContactsDetails(req: Request, res: Response) {
+        try {
+            const result = await AdminService.userContactsService(req);
+            return renderResponse(req, res, result);
+        } catch (error) {
+            return errorResponse(req, res, { status: false, message: "Internal Server Error", code: 500 });
+        };
+    };
     async adminUploads(req: Request, res: Response) {
         try {
             const result = await AdminService.adminUploads(req);

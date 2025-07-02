@@ -5,6 +5,7 @@ interface IContactFormData extends Document {
     email: string;
     subject: string;
     message: string;
+    status: string;
 };
 
 const contactSchema = new Schema<IContactFormData>(
@@ -13,6 +14,7 @@ const contactSchema = new Schema<IContactFormData>(
         email: { type: String, required: true },
         subject: { type: String, required: true },
         message: { type: String, required: true },
+        status: { type: String, default: "Active" }
     },
     {
         timestamps: true,

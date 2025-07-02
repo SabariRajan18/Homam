@@ -50,15 +50,6 @@ class UserController {
             return errorResponse(req, res, { status: false, message: "Internal Server Error", code: 500 });
         };
     };
-    async testimonials(req: Request, res: Response) {
-        try {
-            const result = await UserServices.testimonialsService(req);
-            return renderResponse(req, res, result);
-        } catch (error) {
-            return errorResponse(req, res, { status: false, message: "Internal Server Error", code: 500 });
-        };
-    };
-
     async contactForm(req: Request, res: Response) {
         try {
             const result = await UserServices.contactFormService(req.body);
