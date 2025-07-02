@@ -23,8 +23,9 @@ h1 {
 }
 
 table {
-  width: 100%;
+  width: 85%;
   border-collapse: collapse;
+  margin: 40px auto;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
