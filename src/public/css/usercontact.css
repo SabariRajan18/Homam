@@ -1,0 +1,101 @@
+body {
+  position: relative;
+  font-family: 'Tiro Devanagari Sanskrit', serif;
+  color: #0077cc;
+  padding-top: 70px;
+  overflow-x: hidden;
+  z-index: 0;
+}
+
+/* Blurred background using ::before */
+body::before {
+  content: "";
+  position: fixed;      
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/assets/gallery7.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+ 
+  z-index: -1;           /* Behind all content */
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  user-select: none;
+  letter-spacing: 2px;
+  margin: 1.5rem auto;
+  max-width: fit-content;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+table, th, td {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+}
+
+th {
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+img {
+  width: 100px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: black;
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: 
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  font-weight: bolder;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
+}
+
