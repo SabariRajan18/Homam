@@ -4,20 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="/css/dashboard.css" />
 
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17338028065"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17338028065"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'AW-17338028065');
-</script>
+      gtag("config", "AW-17338028065");
+    </script>
   </head>
   <body>
     <%- include('./layouts/sidebar') %>
@@ -35,18 +42,21 @@
         <% data.forEach((img, index) => { %>
         <tr>
           <td><%= index + 1 %></td>
-          <td><img
-              src="<%= `${req.protocol}://${req.get('host')}/uploads/${img.image}` %>"
-              alt="image" /></td>
           <td>
-            <a href="<%= `/uploads/${img.image}` %>"
-              target="_blank">
+            <img
+              src="<%= `${req.protocol}://${req.get('host')}/uploads/${img.image}` %>"
+              alt="image"
+            />
+          </td>
+          <td>
+            <a href="<%= `/uploads/${img.image}` %>" target="_blank">
               <button>View</button>
             </a>
           </td>
           <td>
-            <button type="submit"
-              onclick="deleteImage(`<%= img._id %>`)">Delete</button>
+            <button type="submit" onclick="deleteImage(`<%= img._id %>`)">
+              Delete
+            </button>
           </td>
         </tr>
         <% }) %>
