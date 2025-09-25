@@ -1,6 +1,6 @@
 body {
   position: relative;
-  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-family: "Tiro Devanagari Sanskrit", serif;
   color: #0077cc;
   padding-top: 70px;
   overflow-x: hidden;
@@ -10,17 +10,17 @@ body {
 /* Blurred background using ::before */
 body::before {
   content: "";
-  position: fixed;      
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('/assets/gallery10.jpg');
+  background-image: url("https://res.cloudinary.com/ddgve9rfs/image/upload/v1758451371/Homam-Assets/1758451361554-gallery10.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
-  z-index: -1;           /* Behind all content */
+
+  z-index: -1; /* Behind all content */
 }
 
 /* admin uploads */
@@ -44,7 +44,7 @@ body::before {
 #preview img {
   max-width: 100px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Highlight on drag over */

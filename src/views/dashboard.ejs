@@ -43,13 +43,10 @@
         <tr>
           <td><%= index + 1 %></td>
           <td>
-            <img
-              src="<%= `${req.protocol}://${req.get('host')}/uploads/${img.image}` %>"
-              alt="image"
-            />
+            <img src="<%= `${img.image}` %>" alt="image" />
           </td>
           <td>
-            <a href="<%= `/uploads/${img.image}` %>" target="_blank">
+            <a href="<%= `${img.image}` %>" target="_blank">
               <button>View</button>
             </a>
           </td>

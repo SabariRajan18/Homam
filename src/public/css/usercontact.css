@@ -1,6 +1,6 @@
 body {
   position: relative;
-  font-family: 'Tiro Devanagari Sanskrit', serif;
+  font-family: "Tiro Devanagari Sanskrit", serif;
   color: #0077cc;
   padding-top: 70px;
   overflow-x: hidden;
@@ -10,17 +10,17 @@ body {
 /* Blurred background using ::before */
 body::before {
   content: "";
-  position: fixed;      
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('/assets/gallery7.jpg');
+  background-image: url("https://res.cloudinary.com/ddgve9rfs/image/upload/v1758451280/Homam-Assets/1758451269729-gallery7.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
- 
-  z-index: -1;           /* Behind all content */
+
+  z-index: -1; /* Behind all content */
 }
 
 h1 {
@@ -53,11 +53,14 @@ table {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-th, td {
+th,
+td {
   padding: 12px;
   text-align: center;
   color: #fff;
@@ -85,10 +88,7 @@ button {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
-  transition: 
-    background 0.3s ease,
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
   font-weight: bolder;
   letter-spacing: 0.5px;
