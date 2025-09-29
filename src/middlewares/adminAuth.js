@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "mySecretKey";
 
 export const adminAuth = (req, res, next) => {
+  console.log("req.cookies", req.cookies);
   const token = req.cookies.adminToken;
   if (!token) {
     res
@@ -18,7 +19,7 @@ export const adminAuth = (req, res, next) => {
   } catch (error) {
     res.clearCookie("adminToken", {
       httpOnly: true,
-      secure: false,
+      secure: true,
       sameSite: "lax",
     });
     res.status(403).json({ message: "Invalid or expired token" });

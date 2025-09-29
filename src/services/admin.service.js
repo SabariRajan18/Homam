@@ -34,7 +34,7 @@ class AdminService {
         response.cookie("adminToken", adminToken, {
           httpOnly: true,
           maxAge: 24 * 60 * 60 * 1000,
-          secure: false,
+          secure: true,
           sameSite: "lax",
         });
         return {
