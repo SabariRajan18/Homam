@@ -31,12 +31,6 @@ class AdminService {
           JWT_SECRET,
           { expiresIn: "24h" }
         );
-        response.cookie("adminToken", adminToken, {
-          httpOnly: true,
-          maxAge: 24 * 60 * 60 * 1000,
-          secure: true,
-          sameSite: "lax",
-        });
         return {
           status: true,
           message: "Login successful",
@@ -149,7 +143,7 @@ class AdminService {
       if (!image) {
         return { status: false, message: "Image not found!" };
       }
-      
+
       await GalleryModel.deleteOne({ _id: imageId });
       return { status: true, message: "Image deleted successfully!" };
     } catch (error) {

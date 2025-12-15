@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         const response = await fetch("/v2/admin/login", {
           method: "POST",
+          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },

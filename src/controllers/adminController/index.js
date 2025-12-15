@@ -21,6 +21,12 @@ class AdminController {
   async adminLogin(req, res) {
     try {
       const result = await AdminService.adminLoginService(req, res);
+      res.cookie("adminToken", result.data.adminToken, {
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000,
+        secure: true,
+        sameSite: "lax",
+      });
       return successResponse(req, res, result);
     } catch (error) {
       return errorResponse(req, res, {
