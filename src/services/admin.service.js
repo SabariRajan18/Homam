@@ -101,36 +101,62 @@ class AdminService {
     try {
       const file = request.file;
 
-      if (!file) return { status: false, message: "No file uploaded!" };
+      if (!file) {
+        return { status: false, message: "No file uploaded!" };
+      }
 
       const filename = `${Date.now()}-${file.originalname.split(".")[0]}`;
+      let fileUrl;
 
-      let quality = 90;
-      let compressedBuffer;
+      // IMAGE PROCESSING
+      if (file.mimetype.startsWith("image/")) {
+        console.log("-----------------------------------");
 
-      while (true) {
-        compressedBuffer = await sharp(file.buffer)
-          .jpeg({ quality, mozjpeg: true }) // For JPEG
-          .toBuffer();
+        let quality = 90;
+        let compressedBuffer;
 
-        console.log(
-          `Trying quality ${quality}, size = ${(
-            compressedBuffer.length /
-            1024 /
-            1024
-          ).toFixed(2)} MB`
-        );
+        while (true) {
+          compressedBuffer = await sharp(file.buffer)
+            .jpeg({ quality, mozjpeg: true })
+            .toBuffer();
 
-        if (compressedBuffer.length <= 10 * 1024 * 1024 || quality <= 30) break;
+          console.log(
+            `Trying quality ${quality}, size = ${(
+              compressedBuffer.length /
+              1024 /
+              1024
+            ).toFixed(2)} MB`
+          );
 
-        quality -= 10; // step down if still >10MB
+          if (compressedBuffer.length <= 10 * 1024 * 1024 || quality <= 30)
+            break;
+
+          quality -= 10;
+        }
+
+        fileUrl = await uploadLargeImage(compressedBuffer, filename);
+
+        await GalleryModel.create({
+          image: fileUrl,
+          type: "image",
+        });
       }
-      const imageUrl = await uploadLargeImage(compressedBuffer, filename);
-      console.log({ imageUrl });
 
-      await GalleryModel.create({ image: imageUrl });
-      return { status: true, message: "file uploaded!" };
+      // VIDEO PROCESSING
+      else if (file.mimetype.startsWith("video/")) {
+        fileUrl = await uploadLargeImage(file.buffer, filename);
+         await GalleryModel.create({
+          image: fileUrl,
+          type: "video",
+        });
+
+      } else {
+        return { status: false, message: "Only image or video allowed!" };
+      }
+
+      return { status: true, message: "File uploaded successfully!" };
     } catch (error) {
+      console.log("====", error);
       return {
         status: false,
         message: error.message ? error.message : "Internal Server Error!",

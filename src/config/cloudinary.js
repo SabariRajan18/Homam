@@ -12,7 +12,7 @@ export const uploadLargeImage = async (fileBuffer, filename) => {
       const stream = cloudinary.v2.uploader.upload_stream(
         {
           chunk_size: 6000000, // 6 MB
-          resource_type: "image",
+          resource_type: "auto",
           folder: "Homam-Assets",
           public_id: filename,
           overwrite: true,

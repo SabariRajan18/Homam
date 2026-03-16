@@ -24,7 +24,7 @@ class AdminController {
       res.cookie("adminToken", result.data.adminToken, {
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
       });
       return successResponse(req, res, result);

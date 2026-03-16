@@ -80,3 +80,8 @@ button:hover {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 6px 18px rgba(255, 255, 255, 0.2);
 }
+
+.preview-video {
+  width: 120px;
+  pointer-events: none; /* prevents hover controls */
+}

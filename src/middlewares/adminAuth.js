@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 const JWT_SECRET = process.env.JWT_SECRET || "mySecretKey";
 
 export const adminAuth = (req, res, next) => {
-  console.log("req.cookies", req.cookies);
   const token = req.cookies.adminToken;
   if (!token) {
     res

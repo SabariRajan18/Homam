@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= title %></title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <link rel="stylesheet" href="/css/dashboard.css" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-17338028065"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    <%= title %>
+  </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <link rel="stylesheet" href="/css/dashboard.css" />
 
-      gtag("config", "AW-17338028065");
-    </script>
-  </head>
-  <body>
-    <%- include('./layouts/sidebar') %>
-    <h1><%= title %></h1>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17338028065"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "AW-17338028065");
+  </script>
+</head>
+
+<body>
+  <%- include('./layouts/sidebar') %>
+    <h1>
+      <%= title %>
+    </h1>
     <table>
       <thead>
         <tr>
           <th>Sl No</th>
-          <th>Image</th>
+          <th>Source</th>
           <th>View</th>
           <th>Delete</th>
         </tr>
       </thead>
+
       <tbody>
-        <% data.forEach((img, index) => { %>
-        <tr>
-          <td><%= index + 1 %></td>
-          <td>
-            <img src="<%= `${img.image}` %>" alt="image" />
-          </td>
-          <td>
-            <a href="<%= `${img.image}` %>" target="_blank">
-              <button>View</button>
-            </a>
-          </td>
-          <td>
-            <button type="submit" onclick="deleteImage(`<%= img._id %>`)">
-              Delete
-            </button>
-          </td>
-        </tr>
-        <% }) %>
+        <% data.forEach((item, index)=> {
+          const url = item.image || item.media;
+          const isVideo = url.match(/\.(mp4|mov|webm|mkv)$/i);
+          %>
+
+          <tr>
+            <td>
+              <%= index + 1 %>
+            </td>
+
+            <td>
+              <% if(isVideo){ %>
+                <video class="preview-video" width="120" controls muted autoplay loop oncontextmenu="return false;">
+                  <source src="<%= url %>">
+                </video>
+                <% } else { %>
+                  <img src="<%= url %>" width="120" />
+                  <% } %>
+            </td>
+
+            <td>
+              <a href="<%= url %>" target="_blank">
+                <button>View</button>
+              </a>
+            </td>
+
+            <td>
+              <button onclick="deleteImage(`<%= item._id %>`)">
+                Delete
+              </button>
+            </td>
+
+          </tr>
+
+          <% }) %>
       </tbody>
     </table>
-  </body>
-  <script src="/js/dashboard.js"></script>
+</body>
+<script src="/js/dashboard.js"></script>
+
 </html>
