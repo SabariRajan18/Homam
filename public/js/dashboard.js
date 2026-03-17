@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", async () => {
+  const token = localStorage.getItem("admin-auth-token");
+
+  if (!token) {
+    window.location.href = "/v2/admin/login";
+    return;
+  }
+});
 const deleteImage = async (imageId) => {
   try {
     const response = await fetch(`/v2/admin/delete-image/${imageId}`, {

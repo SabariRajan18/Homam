@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         const response = await fetch("/v2/admin/login", {
           method: "POST",
-          credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
@@ -37,6 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const data = await response.json();
         if (data.status) {
+
+          localStorage.setItem("admin-auth-token", data.data.adminToken)
           showToast(data.message, "success");
           document.getElementById("login-form").reset();
           setTimeout(() => {

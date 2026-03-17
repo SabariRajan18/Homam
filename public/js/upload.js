@@ -1,3 +1,12 @@
+document.addEventListener("DOMContentLoaded", async () => {
+  const token = localStorage.getItem("admin-auth-token");
+
+  if (!token) {
+    window.location.href = "/v2/admin/login";
+    return;
+  }
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("upload-image-form")
